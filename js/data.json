@@ -1,25 +1,37 @@
 data = [{
-    "movie":"E.T.",
-    "desc":"An Alien Friendship",
-    "url":"./img/1.jpg"
-},{
-    "movie":"Star Wars",
-    "desc":"Explosions and Fantasy in Space!",
-    "url":"./img/2.jpg"
-},{
-    "movie":"Aliens",
-    "desc":"Now its personal...",
-    "url":"./img/3.jpg"
-},{
-    "movie":"Watchmen",
-    "desc":"Another Super Hero Movie Blockbuster Summer Adventure Hit or whatever",
-    "url":"./img/4.jpg"
-},{
-    "movie":"Invaders - From outer Space",
-    "desc":"The title says it all",
-    "url":"./img/5.jpg"
-},{
-    "movie":"THEM",
-    "desc":"Scary Movie from before movies became scary",
-    "url":"./img/6.jpg"
+    "id": "0",
+    "movie": "E.T.",
+    "desc": "An Alien Friendship",
+    "url": "./img/1.jpg",
+    "likes": "0"
+}, {
+    "id": "1",
+    "movie": "Star Wars",
+    "desc": "Explosions and Fantasy in Space!",
+    "url": "./img/2.jpg",
+    "likes": "0"
+}, {
+    "id": "2",
+    "movie": "Aliens",
+    "desc": "Now its personal...",
+    "url": "./img/3.jpg",
+    "likes": "0"
+}, {
+    "id": "3",
+    "movie": "Watchmen",
+    "desc": "Another Super Hero Movie Blockbuster Summer Adventure Hit or whatever",
+    "url": "./img/4.jpg",
+    "likes": "0"
+}, {
+    "id": "4",
+    "movie": "Invaders - From outer Space",
+    "desc": "The title says it all",
+    "url": "./img/5.jpg",
+    "likes": "0"
+}, {
+    "id": "5",
+    "movie": "THEM",
+    "desc": "Scary Movie from before movies became scary",
+    "url": "./img/6.jpg",
+    "likes": "0"
 }]
