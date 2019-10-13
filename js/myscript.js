@@ -1,4 +1,4 @@
-var buff = 0;
+
 var countArray = [];
 
 function createHeader() {
@@ -50,6 +50,7 @@ function createGallery() {
     document.querySelector('body').appendChild(container);
     container.appendChild(container_head);
     var selectSort = document.createElement("select");
+    selectSort.style.boxShadow="5px 5px gray";
     selectSort.id = "select";
     selectSort.style.width = "60%";
     container.appendChild(selectSort);
@@ -62,7 +63,6 @@ function createGallery() {
         document.getElementById("footer").remove();
         createGallery();
         createFooter();
-
     }
     selectopt1.appendChild(selectText1);
     selectSort.appendChild(selectopt1);
@@ -111,6 +111,8 @@ function createGallery() {
         movie_div.style.display = "flex";
         movie_div.style.margin = "20px";
         movie_div.style.padding = "0";
+        movie_div.style.borderRadius="20px";
+        movie_div.style.boxShadow="10px 10px darkgrey";
         movie_div.style.justifyContent = "space-around";
         var movie_img = document.createElement("img");
         movie_img.setAttribute("id", "img" + (i + 1));
@@ -118,33 +120,49 @@ function createGallery() {
         movie_img.style.margin = "10px";
         movie_img.style.width = "45%";
         movie_img.style.height = "300px";
+        movie_img.style.borderRadius="20px";
         var textDiv = document.createElement("div");
         textDiv.style.width = "40%";
         textDiv.style.display = "flex";
         textDiv.style.flexDirection = "column";
+        textDiv.style.flexWrap="wrap";
         var movie_title = document.createElement("h3");
         movie_title.innerHTML = data[i].movie;
+        movie_title.style.height="15%";
+        movie_title.style.boxShadow="5px 5px white"
+        movie_title.style.color="white";
+        movie_title.style.textAlign="center";
+        movie_title.style.border="solid 2px";
         var movie_desc = document.createElement("p");
         movie_desc.innerHTML = data[i].desc;
+        movie_desc.style.height="30%";
+        movie_desc.style.margin="0";
         var btnDiv = document.createElement("div");
+        btnDiv.style.height="25%";
         btnDiv.className = "like_button";
+        btnDiv.style.display="flex";
+        btnDiv.style.justifyContent="center";
         var btnCount = document.createElement("button");
         console.log("btn" + data[i].id);
         btnCount.id = "btn" + data[i].id;
+        btnCount.style.color="white";
+        btnCount.style.boxShadow="5px 5px white";
         btnCount.style.height = "auto";
-        btnCount.style.width = "auto ";
+        btnCount.style.width = "60%";
         btnCount.style.borderRadius = "50%";
-        btnCount.style.backgroundColor = "green";
-        btnCount.style.fontSize = "20pt";
+        btnCount.style.backgroundColor = "black";
+        btnCount.style.fontSize = "25pt";
     
         if (localStorage.getItem("btn"+data[i].id) === null) {
             btnCount.innerHTML = "Likes: 0";
         } else {
-            btnCount.innerHTML = "Likes: " + localStorage.getItem("btn"+data[i].id);
-            data[i].likes=localStorage.getItem("btn"+data[i].id);
+            localStorage.setItem("btn"+data[i].id,data[i].likes);
+            btnCount.innerHTML = "Likes: " + data[i].likes;
         }
+        
+        console.log(data[i].likes);
         btnCount.onclick = function (e) {
-
+            var buff;
             buff = localStorage.getItem(this.id);
             buff++;
             localStorage.setItem(this.id, buff);
@@ -155,8 +173,6 @@ function createGallery() {
             document.getElementById(this.id).value = buff;
             document.getElementById(this.id).innerHTML = "Likes: " + buff;
         }
-
-        btnCount.style.alignSelf = "flex-end";
         container.appendChild(movie_div);
         movie_div.appendChild(movie_img);
         movie_div.appendChild(textDiv);
