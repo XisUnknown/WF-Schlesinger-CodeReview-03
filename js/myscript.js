@@ -112,7 +112,7 @@ function createGallery() {
         movie_div.style.margin = "20px";
         movie_div.style.padding = "0";
         movie_div.style.borderRadius="20px";
-        movie_div.style.boxShadow="10px 10px darkgrey";
+        movie_div.style.boxShadow="5px 5px darkgrey";
         movie_div.style.justifyContent = "space-around";
         var movie_img = document.createElement("img");
         movie_img.setAttribute("id", "img" + (i + 1));
@@ -143,7 +143,6 @@ function createGallery() {
         btnDiv.style.display="flex";
         btnDiv.style.justifyContent="center";
         var btnCount = document.createElement("button");
-        console.log("btn" + data[i].id);
         btnCount.id = "btn" + data[i].id;
         btnCount.style.color="white";
         btnCount.style.boxShadow="5px 5px white";
@@ -155,6 +154,7 @@ function createGallery() {
     
         if (localStorage.getItem("btn"+data[i].id) === null) {
             btnCount.innerHTML = "Likes: 0";
+    
         } else {
             localStorage.setItem("btn"+data[i].id,data[i].likes);
             btnCount.innerHTML = "Likes: " + data[i].likes;
