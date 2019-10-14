@@ -1,7 +1,5 @@
-var countArray = [];
-function getJSONdata(){
 
-}
+var countArray = [];
 
 function createHeader() {
     var header = document.createElement("header");
@@ -157,17 +155,19 @@ function createGallery() {
             btnCount.innerHTML = "Likes: 0";
         } else {
             data[i].likes=localStorage.getItem("btn"+data[i].id);
-            btnCount.innerHTML = "Likes: " + localStorage.getItem("btn"+data[i].id);
+            btnCount.innerHTML = "Likes: " + data[i].likes;
         }
         
         console.log(data[i].likes);
         btnCount.onclick = function (e) {
-            //localStorage.clickcount=Number(localStorage.clickcount)+1;
             var buff;
-            buff = data[this.id.slice(3)].likes;
+            buff = localStorage.getItem(this.id);
             buff++;
             localStorage.setItem(this.id, buff);
+            //console.log("id: "+this.id.slice(3));
+            //console.log("likes_old: "+data[this.id.slice(3)].likes);
             data[this.id.slice(3)].likes = buff;
+            //console.log("likes_new: "+data[this.id.slice(3)].likes);
             document.getElementById(this.id).value = buff;
             document.getElementById(this.id).innerHTML = "Likes: " + buff;
         }
